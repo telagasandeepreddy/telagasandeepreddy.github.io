@@ -95,6 +95,165 @@
   .exp-bullets li { font-size: 13px; color: var(--ink-muted); line-height: 1.55; padding-left: 1rem; position: relative; margin-bottom: 3px; }
   .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent-mid); font-size: 11px; top: 2px; }
 
+  #skills {
+    max-width: 100%;
+    padding: clamp(4rem,8vw,7rem) clamp(1.5rem,5vw,4rem);
+    background: #040816;
+    color: #dbe7ff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #skills::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(88, 123, 255, 0.12), transparent 28%),
+      radial-gradient(circle at 80% 15%, rgba(56, 189, 248, 0.10), transparent 25%),
+      radial-gradient(circle at 50% 90%, rgba(168, 85, 247, 0.08), transparent 22%);
+    pointer-events: none;
+  }
+
+  #skills .inner {
+    position: relative;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  #skills .section-label {
+    color: rgba(255,255,255,0.55);
+  }
+
+  #skills h2 {
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .skill-card {
+    background: linear-gradient(180deg, rgba(13, 22, 48, 0.95), rgba(10, 18, 40, 0.96));
+    border: 1px solid rgba(79, 123, 255, 0.18);
+    border-radius: 22px;
+    padding: 1.6rem;
+    min-height: 410px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.22);
+    position: relative;
+    z-index: 1;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(79, 123, 255, 0.35);
+    box-shadow: 0 28px 60px rgba(0,0,0,0.30);
+  }
+
+  .skill-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .skill-icon svg {
+    width: 30px;
+    height: 30px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .skill-card h3 {
+    color: #e8efff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0.65rem;
+  }
+
+  .skill-card p {
+    color: rgba(220, 231, 255, 0.72);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+
+  .skill-chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid transparent;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .chip-blue {
+    color: #4bb3ff;
+    border-color: rgba(75, 179, 255, 0.22);
+    background: rgba(16, 52, 102, 0.38);
+  }
+
+  .chip-purple {
+    color: #b18cff;
+    border-color: rgba(177, 140, 255, 0.22);
+    background: rgba(54, 38, 102, 0.38);
+  }
+
+  .chip-pink {
+    color: #ff9bd4;
+    border-color: rgba(255, 155, 212, 0.22);
+    background: rgba(102, 38, 77, 0.35);
+  }
+
+  .chip-green {
+    color: #39e6b5;
+    border-color: rgba(57, 230, 181, 0.22);
+    background: rgba(19, 82, 67, 0.35);
+  }
+
+  .chip-teal {
+    color: #41d5ff;
+    border-color: rgba(65, 213, 255, 0.22);
+    background: rgba(18, 72, 92, 0.35);
+  }
+
+  @media (max-width: 1100px) {
+    .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 768px) {
+    #hero { grid-template-columns: 1fr; gap: 2.5rem; min-height: auto; }
+    .hero-visual { order: -1; }
+    .avatar-frame { width: 180px; height: 220px; }
+    .hero-badge { right: 0; }
+    #about .grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .stat-divider { display: none; }
+    .nav-links { display: none; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .skill-card { min-height: auto; }
+  }
+
   #impact { background: #fff; max-width: 100%; padding: clamp(4rem,8vw,6rem) clamp(1.5rem,5vw,4rem); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   #impact .inner { max-width: 1120px; margin: 0 auto; }
   .impact-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1.5rem; margin-top: 2.5rem; }
@@ -103,7 +262,6 @@
   .impact-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 0.4rem; }
   .impact-card p { font-size: 13px; color: var(--ink-muted); line-height: 1.55; }
 
-  /* PROJECTS */
   #projects .cards { display: grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap: 1.5rem; margin-top: 2.5rem; }
   .project-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
   .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
@@ -151,16 +309,6 @@
   .delay-1 { animation-delay: 0.1s; }
   .delay-2 { animation-delay: 0.2s; }
   .delay-3 { animation-delay: 0.35s; }
-
-  @media (max-width: 768px) {
-    #hero { grid-template-columns: 1fr; gap: 2.5rem; min-height: auto; }
-    .hero-visual { order: -1; }
-    .avatar-frame { width: 180px; height: 220px; }
-    .hero-badge { right: 0; }
-    #about .grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .stat-divider { display: none; }
-    .nav-links { display: none; }
-  }
 </style>
 </head>
 <body>
@@ -169,6 +317,7 @@
   <a href="#hero" class="nav-logo">telagasandeepreddy.github.io</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
     <li><a href="#impact">Impact</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#services">Services</a></li>
@@ -177,15 +326,19 @@
   <a href="mailto:telagasandeepreddy@gmail.com" class="nav-cta">Hire me</a>
 </nav>
 
-<!-- HERO -->
 <div id="hero">
   <div>
     <p class="hero-eyebrow fade-up"><span>Senior Data Analyst &amp; BI Solutions Lead</span></p>
-    <h1 class="fade-up delay-1">Sandeep<br><em>Reddy Telaga</em></h1>
-    <p class="hero-sub fade-up delay-2">11+ years building enterprise BI platforms, data pipelines, and predictive analytics. Currently leading Tableau→Looker migrations on GCP at <strong>Premier Inc</strong>, Charlotte NC.</p>
+    <h1 class="fade-up delay-1">Sandeep Reddy<br><em>Telaga</em></h1>
+    <p class="hero-sub fade-up delay-2">12+ years building enterprise BI platforms, data pipelines, and predictive analytics. Currently leading BI platform migrations at <strong>Premier Inc</strong>, Charlotte NC.</p>
     <div class="highlight-pills fade-up delay-2">
-      <span class="pill pill-green"><div class="pill-dot"></div>Tableau Certified Pro</span>
-      <span class="pill pill-blue"><div class="pill-dot"></div>Microsoft Power BI Analyst</span>
+      <span class="pill pill-green"><div class="pill-dot"></div>BI tools</span>
+      <span class="pill pill-blue"><div class="pill-dot"></div>Data Engineering</span>
+	  <span class="pill pill-green"><div class="pill-dot"></div>Data Analysis</span>
+	  <span class="pill pill-blue"><div class="pill-dot"></div>Data Science</span>
+      <span class="pill pill-green"><div class="pill-dot"></div>Project Management</span>
+	  <span class="pill pill-blue"><div class="pill-dot"></div>Business Analysis</span>
+      <span class="pill pill-green"><div class="pill-dot"></div>TPM</span>
       <span class="pill pill-gold"><div class="pill-dot"></div>Open to Opportunities</span>
     </div>
     <div class="btn-group fade-up delay-3">
@@ -195,7 +348,6 @@
   </div>
   <div class="hero-visual fade-up delay-2">
     <div class="avatar-frame">
-      <!-- Replace with: <img src="your-photo.jpg" alt="Sandeep Reddy Telaga" /> -->
        <img src="photo.jpg" alt="Sandeep Reddy Telaga" />
     </div>
     <div class="hero-badge">
@@ -208,29 +360,26 @@
   </div>
 </div>
 
-<!-- STATS -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div><div class="stat-value">11+</div><div class="stat-label">Years Experience</div></div>
+    <div><div class="stat-value">12+</div><div class="stat-label">Years Experience</div></div>
     <div class="stat-divider"></div>
-    <div><div class="stat-value">4</div><div class="stat-label">BI Platforms Mastered</div></div>
+    <div><div class="stat-value">6+</div><div class="stat-label">BI Platforms Mastered</div></div>
     <div class="stat-divider"></div>
-    <div><div class="stat-value">30%</div><div class="stat-label">Reporting Efficiency ↑</div></div>
+    <div><div class="stat-value">5+</div><div class="stat-label">Business Domains ↑</div></div>
     <div class="stat-divider"></div>
-    <div><div class="stat-value">20%</div><div class="stat-label">Cost Reduction Delivered</div></div>
+    <div><div class="stat-value">100%</div><div class="stat-label">Client Satisfaction</div></div>
     <div class="stat-divider"></div>
-    <div><div class="stat-value">8</div><div class="stat-label">GitHub Projects</div></div>
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="grid">
     <div class="about-text">
       <p class="section-label">About me</p>
       <h2>BI Lead &amp; <em style="font-style:italic">Data Engineer</em></h2>
-      <p>I'm a Senior Data Analyst and BI Solutions Lead with 11+ years of enterprise experience across healthcare, pharma, and manufacturing. My work spans Tableau, Power BI, Looker, Cognos, and SAP BO — with deep expertise in cloud data engineering on GCP, AWS, and Azure.</p>
-      <p>Currently at <strong>Premier Inc</strong>, I lead the migration of enterprise analytics from Tableau to Looker on GCP, building LookML semantic models over BigQuery and automating pipelines via Python REST APIs.</p>
+      <p>I'm a Senior Data Analyst and BI Solutions Lead with 12+ years of enterprise experience across healthcare,retail, pharma, and manufacturing. My work spans effective utilisation of Business Intelligence platforms integration — with deep expertise in cloud data engineering on GCP, AWS, and Azure.</p>
+      <p>Currently at <strong>Premier Inc</strong>, I lead the migration of enterprise analytics across BI platforms building semantic models and reporting solutions over databases and automating pipelines via ETL'S, Python REST APIs and BI tools.</p>
       <div class="cert-row">
         <div class="cert-badge"><div class="cert-icon" style="background:#e8f0fe;">🪟</div><div><div style="font-size:11px;color:var(--ink-faint);font-family:var(--mono);text-transform:uppercase;letter-spacing:0.06em;">Microsoft Certified</div>Power BI Data Analyst</div></div>
         <div class="cert-badge"><div class="cert-icon" style="background:#e8f5fb;">📊</div><div><div style="font-size:11px;color:var(--ink-faint);font-family:var(--mono);text-transform:uppercase;letter-spacing:0.06em;">Tableau</div>Desktop Certified Professional</div></div>
@@ -239,7 +388,7 @@
         <div class="skill-row"><div class="skill-row-label">Visualization &amp; BI</div><div class="tag-list"><span class="tag tag-green">Tableau</span><span class="tag tag-green">Power BI</span><span class="tag tag-green">Looker/LookML</span><span class="tag tag-green">Cognos</span><span class="tag tag-green">SAP BO</span><span class="tag tag-green">Amazon QuickSight</span></div></div>
         <div class="skill-row"><div class="skill-row-label">Cloud &amp; Databases</div><div class="tag-list"><span class="tag tag-teal">GCP</span><span class="tag tag-teal">AWS</span><span class="tag tag-teal">Azure</span><span class="tag tag-teal">BigQuery</span><span class="tag tag-teal">Snowflake</span><span class="tag tag-teal">Oracle</span><span class="tag tag-teal">PostgreSQL</span></div></div>
         <div class="skill-row"><div class="skill-row-label">Programming &amp; ETL</div><div class="tag-list"><span class="tag tag-gold">Python</span><span class="tag tag-gold">SQL / T-SQL</span><span class="tag tag-gold">DAX</span><span class="tag tag-gold">Talend</span><span class="tag tag-gold">Informatica</span><span class="tag tag-gold">Alteryx</span><span class="tag tag-gold">Power Query (M)</span></div></div>
-        <div class="skill-row"><div class="skill-row-label">Governance &amp; Compliance</div><div class="tag-list"><span class="tag tag-blue">Row-Level Security</span><span class="tag tag-blue">PHI/PII</span><span class="tag tag-blue">Data Governance</span><span class="tag tag-blue">HIPAA</span><span class="tag tag-blue">GIT</span></div></div>
+        <div class="skill-row"><div class="skill-row-label">Governance &amp; Compliance</div><div class="tag-list"><span class="tag tag-blue">PHI/PII</span><span class="tag tag-blue">HIPAA</span><span class="tag tag-blue">Data Governance</span><span class="tag tag-blue">RBAC/Row-Level Security</span><span class="tag tag-blue">GIT</span></div></div>
       </div>
     </div>
     <div>
@@ -250,11 +399,11 @@
           <div class="exp-role">BI Solutions Lead</div>
           <div class="exp-company">Premier Inc · Charlotte, NC</div>
           <ul class="exp-bullets">
-            <li>Led Tableau → Looker migration on GCP with LookML &amp; BigQuery</li>
+            <li>Led BI Platform migration projects(Tableau,powerBI,QuickSight) &amp; AWS,GCP,Azure</li>
             <li>Improved ETL refresh efficiency by 30% via pipeline optimizations</li>
             <li>Reduced healthcare provider costs by 20% via predictive analytics</li>
             <li>Automated ingestion using Python REST APIs into BigQuery</li>
-            <li>Administered Tableau Server for 200+ users with RLS &amp; PHI compliance</li>
+            <li>Administered Tableau Server for 20000+ users &amp; PHI compliance</li>
           </ul>
         </div>
         <div class="exp-item">
@@ -287,27 +436,135 @@
   </div>
 </section>
 
-<!-- IMPACT -->
+<section id="skills">
+  <div class="inner">
+    <p class="section-label">Skills</p>
+    <h2>Core skill sets</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon" style="color:#4bb3ff;">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="10" width="3" height="8" rx="1"></rect>
+            <rect x="8" y="6" width="3" height="12" rx="1"></rect>
+            <rect x="13" y="3" width="3" height="15" rx="1"></rect>
+            <rect x="18" y="8" width="3" height="10" rx="1"></rect>
+          </svg>
+        </div>
+        <h3>Data Analysis &amp; Viz</h3>
+        <p>Dashboard design, KPI metrics, stakeholder reporting, and visual storytelling that drives decisions.</p>
+        <div class="skill-chip-list">
+          <span class="skill-chip chip-blue">SQL</span>
+          <span class="skill-chip chip-blue">Tableau</span>
+          <span class="skill-chip chip-blue">Power BI</span>
+          <span class="skill-chip chip-blue">QuickSight</span>
+		  <span class="skill-chip chip-blue">Looker</span>
+		  <span class="skill-chip chip-blue">Cognos</span>
+		  <span class="skill-chip chip-blue">SAP BO</span>
+          <span class="skill-chip chip-blue">Excel</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon" style="color:#b18cff;">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 17c2-4 5-4 7-2s4 2 6-1 3-4 5-3"></path>
+            <path d="M14 10l2 2 3-3"></path>
+          </svg>
+        </div>
+        <h3>Programming &amp; Analytics</h3>
+        <p>Statistical analysis, EDA, hypothesis testing, A/B experiments, reproducible code.</p>
+        <div class="skill-chip-list">
+          <span class="skill-chip chip-purple">Python</span>
+          <span class="skill-chip chip-purple">Pandas</span>
+		  <span class="skill-chip chip-purple">numpy</span>
+          <span class="skill-chip chip-purple">EDA</span>
+          <span class="skill-chip chip-purple">A/B Testing</span>
+        </div>
+      </div>
+		
+	<div class="skill-card">
+        <div class="skill-icon" style="color:#39e6b5;">
+          <svg viewBox="0 0 24 24">
+            <ellipse cx="12" cy="8" rx="6" ry="4"></ellipse>
+            <path d="M6 8v6c0 2 2.7 4 6 4s6-2 6-4V8"></path>
+            <path d="M12 12v6"></path>
+            <circle cx="8" cy="18" r="1.2"></circle>
+            <circle cx="16" cy="18" r="1.2"></circle>
+          </svg>
+        </div>
+        <h3>Cloud &amp; Data Engineering</h3>
+        <p>ETL design, storage, and analytics infrastructure on AWS,Azure,GCP.</p>
+        <div class="skill-chip-list">
+          <span class="skill-chip chip-green">AWS</span>
+          <span class="skill-chip chip-green">Azure</span>
+          <span class="skill-chip chip-green">GCP</span>
+		  <span class="skill-chip chip-green">Alteryx</span>
+          <span class="skill-chip chip-green">Talend</span>
+          <span class="skill-chip chip-green">LookML</span>
+		  <span class="skill-chip chip-green">PowerQuery</span>
+          <span class="skill-chip chip-green">Tableau Prep</span>
+        </div>
+      </div>
+	  
+      <div class="skill-card">
+        <div class="skill-icon" style="color:#41d5ff;">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+            <path d="M7 15l3-3 2 2 5-5"></path>
+            <path d="M16 9h2v2"></path>
+          </svg>
+        </div>
+        <h3>Business Analytics</h3>
+        <p>Decision-focused analysis across customer behavior, retention, and experimentation.</p>
+        <div class="skill-chip-list">
+          <span class="skill-chip chip-teal">Funnel Analysis</span>
+          <span class="skill-chip chip-teal">Customer Segmentation</span>
+          <span class="skill-chip chip-teal">Retention Analysis</span>
+          <span class="skill-chip chip-teal">Experiment Design</span>
+          <span class="skill-chip chip-teal">KPI Tracking</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon" style="color:#ff9bd4;">
+          <svg viewBox="0 0 24 24">
+            <circle cx="6" cy="18" r="2"></circle>
+            <circle cx="12" cy="6" r="2"></circle>
+            <circle cx="18" cy="14" r="2"></circle>
+            <path d="M8 16l2-8"></path>
+            <path d="M13.5 7.5L16.5 12.5"></path>
+          </svg>
+        </div>
+        <h3>Machine Learning</h3>
+        <p>Feature engineering, regression, classification, NLP, and cross-validation.</p>
+        <div class="skill-chip-list">
+          <span class="skill-chip chip-pink">Scikit-learn</span>
+          <span class="skill-chip chip-pink">Word2Vec</span>
+          <span class="skill-chip chip-pink">NLP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div id="impact">
   <div class="inner">
     <p class="section-label">Measurable results</p>
     <h2>Impact by the numbers</h2>
     <div class="impact-grid">
-      <div class="impact-card"><div class="impact-num">20%</div><h3>Healthcare Cost Reduction</h3><p>Predictive analytics at Premier Inc surfaced procurement inefficiencies, enabling smarter buying decisions for healthcare providers.</p></div>
-      <div class="impact-card"><div class="impact-num">30%</div><h3>Reporting Efficiency Gain</h3><p>Optimized ETL pipelines and BigQuery schemas, cutting dashboard refresh times across enterprise reporting at Premier Inc.</p></div>
-      <div class="impact-card"><div class="impact-num">10%</div><h3>Revenue Uplift at J&amp;J</h3><p>P&amp;L and sales dashboards for consumer, pharma &amp; vision care surfaced key cost-reduction and revenue opportunities.</p></div>
-      <div class="impact-card"><div class="impact-num">~2hrs</div><h3>Monthly Manual Work Saved</h3><p>Pharma pipeline automation cut 30–40 hrs/month of manual reporting to under 2 hours via Python + Power Query + Power BI.</p></div>
+      <div class="impact-card"><div class="impact-num">25%</div><h3>Healthcare Cost Reduction</h3><p>Predictive analytics at Premier Inc surfaced procurement inefficiencies, enabling smarter buying decisions for healthcare providers.</p></div>
+      <div class="impact-card"><div class="impact-num">100%</div><h3>Reporting Efficiency</h3><p>Optimized ETL pipelines and BigQuery schemas, cutting dashboard refresh times across enterprise reporting at Premier Inc.</p></div>
+      <div class="impact-card"><div class="impact-num">30%</div><h3>Revenue Uplift at Pharma Retail</h3><p>P&amp;L and sales dashboards for consumer, pharma &amp; vision care surfaced key cost-reduction and revenue opportunities.</p></div>
+      <div class="impact-card"><div class="impact-num">~40hrs</div><h3>Monthly Manual Work Saved</h3><p>Pharma pipeline automation cut 30–40 hrs/month of manual reporting to under 2 hours via Python + Power Query + Power BI.</p></div>
     </div>
   </div>
 </div>
 
-<!-- PROJECTS -->
 <section id="projects">
   <p class="section-label">GitHub portfolio</p>
   <h2>Projects &amp; open source work</h2>
   <p style="color:var(--ink-muted);margin-bottom:0;font-size:15px;margin-bottom:0.5rem;">8 real projects covering SQL, Python, Power BI, Tableau, Looker, QuickSight, and pharma analytics.</p>
   <div class="cards">
-
     <a href="https://github.com/telagasandeepreddy/Pharma-Insights-Project" class="project-card" target="_blank" rel="noopener">
       <span class="ptag ptag-pharma">Pharma · Automation</span>
       <h3>Pharma Wholesale Sales Pipeline</h3>
@@ -371,11 +628,9 @@
       <div class="project-stack"><span class="stack-tag">PostgreSQL</span><span class="stack-tag">T-SQL</span><span class="stack-tag">BigQuery SQL</span><span class="stack-tag">Window Functions</span><span class="stack-tag">CTEs</span></div>
       <span class="project-link">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span>
     </a>
-
   </div>
 </section>
 
-<!-- SERVICES -->
 <div id="services">
   <div class="inner">
     <p class="section-label">What I do</p>
@@ -391,12 +646,11 @@
   </div>
 </div>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="contact-card">
     <p class="section-label">Get in touch</p>
     <h2>Let's work together</h2>
-    <p>Open to senior data roles, BI consulting, and freelance analytics projects. Based in Charlotte, NC — available remote.</p>
+    <p>Open to senior data roles, BI consulting, and freelance analytics projects. Based in Charlotte, NC — available remote and onsite.</p>
     <a href="mailto:telagasandeepreddy@gmail.com" class="btn-primary" style="display:inline-flex;">
       telagasandeepreddy@gmail.com
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
